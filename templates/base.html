@@ -1,0 +1,75 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'category_css/category.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hilites/tango.css'%}">
+    <script src="{% static 'js/jquery3.4.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>    
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .footer {
+            background-color: #6c757d;
+            height: 300px;
+            width: auto;
+            text-align: center;
+        }
+
+        #container {
+            min-height: 61%;
+        }
+        span.highlighted {
+            color: rgb(218, 44, 44);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航开始 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <a class="navbar-brand" href="/">
+            <b>
+                <font color="#28a745">TABWOLRD</font>
+            </b>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav mr-auto">
+                {% for cate in categories %}
+                <li class="nav-item clicked">
+                    <a class="nav-link" href="{% url 'category_list' cate.id %}">{{ cate.category }}</a>
+                </li>
+                {% endfor %}
+                <li class="nav-item ">
+                    <a class="nav-link text-primary " href="{% url 'project_list' %}">项目</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'haystack_search'%}">
+                <input class="form-control mr-sm-2" type="search" placeholder="输入关键词" aria-label="Search" name="q" required>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">GO</button>
+            </form>
+        </div>
+    </nav>
+    <!-- 导航结束 -->
+    <!-- 继承内容 -->
+    <div class="container" id="container">
+        {% block main %}
+        {% endblock %}
+    </div>
+    {% include 'footer.html' %}
+</body>
+
+</html>

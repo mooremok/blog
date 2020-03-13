@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load highlight %}
+{% block main %}
+{% if query %}
+<div class="mt-3">
+    <p>关于“{{ query }}”的搜索结果(共{{ paginator.count }}条)</p>
+    <hr>
+    {% for result in page.object_list %}
+    <div>
+        <div>
+            <a href="/note-detail/{{ result.object.id }}">{% highlight result.object.title with query %}</a>
+        </div>
+        <div style="font-size: 14px;color: gray;">
+            <p>{% highlight result.object.content with query %}>>><a href="/note-detail/{{ result.object.id }}"
+                    class="more-link">查看详情</a></p>
+        </div>
+    </div>
+    {% empty %}
+    <div>关键词{{ query }}暂无结果</div>
+    {% endfor %}
+    {% if page.has_previous or page.has_next %}
+    <div>
+        {% if page.has_previous %}
+        <a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous
+            {% if page.has_previous %}</a>{% endif %}
+        |
+        {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next
+            &raquo;{% if page.has_next %}</a>{% endif %}
+    </div>
+    {% endif %}
+    {% else %}
+    请输入搜索关键词，例如 django
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+span {
+    color:rgb(39, 37, 35);
+  }
+  .desc {
+    color: gray;
+    font-size: 14px;
+  }
+  .taps-base, 
+  .python,
+  .django,
+  .js,
+  .set-default {
+    border-radius: 2px;
+    font-size: 12px;
+    line-height: 180%;
+    text-align: center;
+    padding: 0.3em 0.3em;
+    border-radius: 0.2em;
+  }
+  .python a{    
+    color: #f8d457;
+    background-color:#284162;    
+    
+  }
+  .django a{    
+    color: #65b38e; 
+    background-color: #224a36; 
+  }
+  .js a{
+    color: aliceblue;
+    background-color: #af3c37;
+  }
+  .set-default a{
+    color: rgb(255, 255, 255);
+    background-color: #28a745;
+  }
+
+  .btn-primary {
+    background-color: #159963;
+    border-color: #159963;
+  }
