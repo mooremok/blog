@@ -1,5 +1,5 @@
 from . base import *
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['tabworld.cn']
+ALLOWED_HOSTS = ['tabworld.cn','www.tabworld.cn']
 
