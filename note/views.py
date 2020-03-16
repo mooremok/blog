@@ -21,7 +21,7 @@ def note_detail(request, note_id):
     return render(request, 'note/detail.html', context)
 
 def category_list(request, cate_id):
-    notes = Category.objects.get(id=cate_id).note_set.all().order_by('-id')
+    notes = Category.objects.get(id=cate_id).note_set.all()
     paginator = Paginator(notes, 20)
     page = request.GET.get('page')
     page_obj = paginator.get_page(page)
