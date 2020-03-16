@@ -2,18 +2,26 @@
 {% block title %}{% endblock %}
 {% block main %}
 <div class="row pt-3">
-    <div class="col-8">
+    <div class="col-lg-9">
         <div class="pb-2">
             <span><img src="http://images.china.cn/attachement/jpg/site1000/20141117/0019b91ec8ef15d39b483e.jpg" alt="" width="30" height="30" class="rounded-circle"></span>
             <span>{{ content.author }}</span>
         </div>
         <h5>{{ content.title }}</h5>
         <div class="pb-2">
-            <span><img src="/static/svgs/icons/clock.svg" alt="">{{ content.created_time }}</span>
-            <span><img src="/static/svgs/icons/eye.svg" alt="">20</span>
-            <span><img src="/static/svgs/icons/chat.svg" alt="">300</span>
-            <span class="cate01">{{ content.category }}</span>
-        </div>        
+            <span style="font-size:12px"><img src="/static/svgs/icons/clock.svg" alt="">{{ content.created_time }}</span>
+            <span style="font-size:12px"><img src="/static/svgs/icons/eye.svg" alt="">20</span>
+            <span style="font-size:12px"><img src="/static/svgs/icons/chat.svg" alt="">300</span>
+            <a style="
+            font-size: 0.5rem;
+            padding: 0 .2rem;
+            height: 0.7rem;
+            line-height: 0.7rem;
+            border-radius: .1875rem;
+            color: #159963;
+            background-color: #E7F4EF;" href="{% url 'category_list' content.category.id %}">{{ content.category }}</a>
+        </div> 
+        <hr>       
         <p>{{ content.content |safe }}</p>
         <div class="mt-5 mb-5">
             <p>评论</p>

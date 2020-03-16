@@ -3,31 +3,37 @@
 {% block main %}
 <!-- 文章列表页 -->
 <div class="row pt-3">
-    <div class="col-8">
+    <div class="col-lg-9">
         <!-- 遍历文章 -->
         {% for note in page_obj %}
-        <div class="media">
-            <div class="media-body">
-                <h5 class="mt-0"><a href="{% url 'note_detail' note.id %}">{{ note.title }}</a></h5>
-                <span class="desc mb-0">{{ note.desc }}</span>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="{{ note.cover.url }}" class="ml-3 img-fluid d-sm-none d-none d-md-block" alt="..."
+                    style="height: 100px; width: 160px;">
             </div>
-            <img src="{{ note.cover.url }}" class="ml-3 img-fluid" alt="..." style="height: 100px; width: 160px;">
-        </div>
-        <div class="pb-3">
-            <span style="font-size: 12px;"><img src="/static/svgs/icons/person.svg" widht="20" height="20"
-                    alt="">{{ note.author }}</span>
-            <span style="font-size: 12px;"><img src="/static/svgs/icons/clock.svg" widht="20" height="20"
-                    alt="">{{ note.created_time }}</span>
-            <span style="font-size: 12px;"><img src="/static/svgs/icons/eye.svg" widht="20" height="20"
-                    alt="">30</span>
-            <span style="font-size: 12px;"><img src="/static/svgs/icons/chat.svg" widht="20" height="20"
-                    alt="">40</span>            
-            {% if note.category.category == 'PYTHON' %}<span class="python"><a href="{% url 'category_list' note.category.id %}" class="new-a">{{ note.category }}</a></span>
-            {% elif note.category.category == 'DJANGO'%}<span class="django"><a href="{% url 'category_list' note.category.id %}" class="new-a">{{ note.category }}</a></span>
-            {% elif note.category.category == 'JAVASCRIPT'%}<span class="js"><a href="{% url 'category_list' note.category.id %}" class="new-a">{{ note.category }}</a></span>
-            {% else %} <span class="set-default"><a href="{% url 'category_list' note.category.id %}" class="new-a">{{ note.category }}</a></span>
-            {% endif %}
-            
+            <div class="col-md-9">
+                <h6 class="mt-0"><a href="{% url 'note_detail' note.id %}">{{ note.title }}</a></h6>
+                <span class="desc mb-0">{{ note.desc }}</span>
+                <div class="pb-3">
+                    <span style="font-size: 12px;"><img src="/static/svgs/icons/person.svg" widht="20" height="20"
+                            alt="">{{ note.author }}</span>
+                    <span style="font-size: 12px;"><img src="/static/svgs/icons/clock.svg" widht="20" height="20"
+                            alt="">{{ note.created_time }}</span>
+                    <span style="font-size: 12px;"><img src="/static/svgs/icons/eye.svg" widht="20" height="20"
+                            alt="">30</span>
+                    <span style="font-size: 12px;"><img src="/static/svgs/icons/chat.svg" widht="20" height="20"
+                            alt="">40</span>
+                    <a style="
+                    font-size: 0.5rem;
+                    padding: 0 .2rem;
+                    height: 0.7rem;
+                    line-height: 0.7rem;
+                    border-radius: .1875rem;
+                    color: #159963;
+                    background-color: #E7F4EF;"
+                        href="{% url 'category_list' note.category.id %}">{{ note.category }}</a>
+                </div>
+            </div>
         </div>
         <hr>
         {% empty %}
@@ -45,11 +51,12 @@
 
             <!-- 显示页数及判断当前在哪一页 -->
             {% for i in paginator.page_range %}
-                {% if page_obj.number == i %}
-                <li class="page-item active"><span class="page-link">{{ i }}<span class="sr-only">(current)</span></span></li>
-                {% else %}
-                <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
-                {% endif %}
+            {% if page_obj.number == i %}
+            <li class="page-item active"><span class="page-link">{{ i }}<span class="sr-only">(current)</span></span>
+            </li>
+            {% else %}
+            <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+            {% endif %}
             {% endfor %}
 
             <!-- 判断是否还有下一页，如果没有，下一页不可点击 -->
@@ -65,5 +72,4 @@
     </div>
     {% include 'collection_bar.html' %}
 </div>
-
 {% endblock %}

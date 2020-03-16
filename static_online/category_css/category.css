@@ -1,40 +1,20 @@
 span {
     color:rgb(39, 37, 35);
+    font-size: 12px;
   }
   .desc {
     color: gray;
     font-size: 14px;
   }
-  .taps-base, 
-  .python,
-  .django,
-  .js,
-  .set-default {
-    border-radius: 2px;
-    font-size: 12px;
-    line-height: 180%;
-    text-align: center;
-    padding: 0.3em 0.3em;
-    border-radius: 0.2em;
+  #badge-tag {
+    display: inline-block;
+    font-size: .0.5rem;
+    padding: 0 .375rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    border-radius: .1875rem;
+    background-color: rgba(0,150,94,.1);
   }
-  .python a{    
-    color: #f8d457;
-    background-color:#284162;    
-    
-  }
-  .django a{    
-    color: #65b38e; 
-    background-color: #224a36; 
-  }
-  .js a{
-    color: aliceblue;
-    background-color: #af3c37;
-  }
-  .set-default a{
-    color: rgb(255, 255, 255);
-    background-color: #28a745;
-  }
-
   .btn-primary {
     background-color: #159963;
     border-color: #159963;
