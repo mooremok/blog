@@ -73,7 +73,7 @@ eggs/
 
 .eggs/
 
-lib/
+#lib/
 
 lib64/
 
