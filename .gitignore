@@ -211,3 +211,5 @@ GitHub.sublime-settings
 
 Python/
 .DS_Store
+
+whoosh_index/
