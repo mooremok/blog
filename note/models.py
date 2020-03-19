@@ -21,6 +21,7 @@ class Note(models.Model):
     content = MDTextField(verbose_name='文章内容')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
     cover = models.ImageField(upload_to='cover', help_text='160*100')
+    views = models.PositiveIntegerField(default=0, editable=True, verbose_name='阅读量')
 
     def __str__(self):
         return self.title
@@ -29,3 +30,7 @@ class Note(models.Model):
     @classmethod
     def get_all_notes(cls):        
         return cls.objects.all().order_by('-id')
+    
+    def increase_views(self):
+        self.views += 1
+        self.save(update_fields=['views'])

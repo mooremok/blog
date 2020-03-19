@@ -7,6 +7,7 @@ import markdown
 
 def note_detail(request, note_id):
     content = Note.objects.get(id=note_id)
+    content.increase_views()
     content.content = markdown.markdown(content.content,
                         extensions = [
                             'markdown.extensions.extra',
