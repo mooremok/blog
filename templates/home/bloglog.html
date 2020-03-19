@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="mt-5 text-danger">    
+    {% for log in logs %}
+    <li>{{ log.created_time |date:"Y-m-d H:i"}}</li>
+    <p class="pb-1">{{ log.content }}</p>
+    {% endfor %}
+</div>
+{% endblock %}

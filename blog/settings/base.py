@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'project',
     'mdeditor', #markdown编辑器
     'haystack', #全文搜索框架
+    'home',
 ]
 
 MIDDLEWARE = [

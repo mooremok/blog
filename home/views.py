@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from note.models import Note, Category
 from django.core.paginator import Paginator #分页器
+from . models import BlogLog
 
 from haystack.views import SearchView
 
@@ -26,3 +27,12 @@ class MySearchView(SearchView):
             'categories': categories,
         }
         return context
+
+def get_logs(request):
+    logs = BlogLog.get_all_logs()
+    categories = Category.get_all_categories()
+    context = {
+        'logs': logs,
+        'categories': categories,
+    }
+    return render(request, 'home/bloglog.html', context)

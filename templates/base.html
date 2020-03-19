@@ -56,6 +56,9 @@
                 <li class="nav-item ">
                     <a class="nav-link text-primary " href="{% url 'project_list' %}">项目</a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-primary " href="{% url 'logs' %}">日志</a>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'haystack_search'%}">
                 <input class="form-control mr-sm-2" type="search" placeholder="输入关键词" aria-label="Search" name="q" required>
