@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'mdeditor', #markdown编辑器
     'haystack', #全文搜索框架
     'home',
+    'favorites',
 ]
 
 MIDDLEWARE = [

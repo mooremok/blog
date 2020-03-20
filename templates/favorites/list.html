@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="row">
+    {% for f in favorites %}
+    <div class="card mt-3 mr-1 ml-1" style="width: 14rem;">
+        <div class="card-body">
+            <h6 class="card-title">{{ f.title }}</h6>
+            <p class="card-text" style="font-size: 14px;">{{ f.desc }}</p>
+            <h6 class="card-subtitle mb-2 font-weight-lighter small">{{ f.created_time }}</h6>
+            <a href="{{ f.the_url }}" class="card-link" target="_blank">查看</a>
+        </div>
+    </div>
+    {% empty %}
+    <div class="text-center mt-3">
+        暂无收藏
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

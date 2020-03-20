@@ -23,6 +23,7 @@ from note.views import note_detail, category_list
 from project.views import project_list, project_detail
 import haystack
 from home.views import get_logs
+from favorites.views import show_favorites
 
 urlpatterns = [
     path('admin/', admin.site.urls),    
@@ -34,4 +35,5 @@ urlpatterns = [
     path('projects/detail/<p_id>', project_detail, name='project_detail'),
     path('search/', MySearchView(), name='haystack_search'),
     path('logs/', get_logs, name='logs'),
+    path('favorites/', show_favorites, name='favorites')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
