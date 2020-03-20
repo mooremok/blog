@@ -1,23 +1,20 @@
 {% extends 'base.html'%}
 {% block main %}
 <div class="d-flex p-3 bg-warning"><img src="/static/svgs/icons/Terminal.svg" style="height:auto;" alt="">撸一些小项目练练手</div>
-{% for p in projects %}
-<div class="row row-cols-1 row-cols-md-4 mt-5">
-    <div class="col mb-4">
-        <div class="card h-60" style="width: 13rem;">
+
+<div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 mt-3">
+    {% for p in projects %}
+    <div class="col mb-2">
+        <div class="card h-100">
             <img src="{{ p.cover.url }}"
                 class="card-img-top" alt="{{ p.cover.name }}">
             <div class="card-body">
                 <h5 class="card-title"><a href="{% url 'project_detail' p.id %}" class="stretched-link"><small>{{ p.title }}</small></a></h5>
                 <p class="text-secondary small">{{ p.desc | slice:"30" }}{% if p.desc|length > 30 %}...{% endif %}</p>
                 <p class="font-weight-lighter small">{{ p.created_time }}</p>
-            </div>
-            
+            </div>            
         </div>
-    </div>    
+    </div>
+    {% endfor %}  
 </div>
-{% empty %}
-暂无项目
-{% endfor %}
-
 {% endblock %}
