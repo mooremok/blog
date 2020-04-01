@@ -1,0 +1,10 @@
+<div class="mt-5 mb-5">
+    <h5>评论/<span>共{{ comment_count }}条</span></h5>
+    {% for comment in comment_list %}
+    <small><span style="color: royalblue;">码友：{{ comment.nickname }}</span><span class="ml-3">{{ comment.created_time }}</span></small>
+    <p class="mt-2">{{ comment.content }}</p>
+    <hr/>
+    {% empty %}
+    <p class="text-center">暂无评论</p>
+    {% endfor %}
+</div>

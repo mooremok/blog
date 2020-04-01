@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'category_css/category.css' %}">
     <link rel="stylesheet" href="{% static 'css/hilites/tango.css'%}">
     <script src="{% static 'js/jquery3.4.js' %}"></script>
-    <script src="{% static 'js/bootstrap.js' %}"></script>    
+    <script src="{% static 'js/bootstrap.js' %}"></script>
     <title>{% block title %}{% endblock %}</title>
     <style>
         html,
@@ -24,7 +24,6 @@
             width: auto;
             text-align: center;
         }
-
         #container {
             min-height: 61%;
         }
@@ -61,10 +60,12 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'haystack_search'%}">
-                <input class="form-control mr-sm-2" type="search" placeholder="输入关键词" aria-label="Search" name="q" required>
+                <input class="form-control mr-sm-2" type="search" placeholder="输入关键词" aria-label="Search" name="q"
+                    required>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">GO</button>
-            </form>
+            </form>          
         </div>
+        
     </nav>
     <!-- 导航结束 -->
     <!-- 继承内容 -->

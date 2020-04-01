@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'haystack', #全文搜索框架
     'home',
     'favorites',
+    'comments',
 ]
 
 MIDDLEWARE = [

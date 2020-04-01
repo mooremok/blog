@@ -11,7 +11,8 @@
         <div class="pb-2">
             <span style="font-size:12px"><img src="/static/svgs/icons/clock.svg" alt="">{{ content.created_time }}</span>
             <span style="font-size:12px"><img src="/static/svgs/icons/eye.svg" alt="">{{ content.views }}</span>
-            <span style="font-size:12px"><img src="/static/svgs/icons/chat.svg" alt="">null</span>
+
+            <span style="font-size:12px"><img src="/static/svgs/icons/chat.svg" alt="">{{ comments_count }}</span>
             <a style="
             font-size: 0.5rem;
             padding: 0 .2rem;
@@ -23,23 +24,10 @@
         </div> 
         <hr>       
         <p>{{ content.content |safe }}</p>
-        <div class="mt-5 mb-5">
-            <p>评论</p>
-            <hr>
-            <p class="text-center">暂无评论</p>
-        </div>
-        <div class="input-group mb-2">
-            <input type="text" class="form-control" placeholder="输入昵称" aria-label="Username"
-                aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-2">
-            <input type="text" class="form-control" placeholder="输入网址" aria-label="Username"
-                aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group">
-            <textarea class="form-control" aria-label="With textarea" placeholder="输入评论内容"></textarea>
-        </div>
-        <button type="button" class="btn btn-warning w-100 mt-2">提交</button>
+        {% load comments_extra %}
+        {% show_comments content %}
+        {% comments_post content %}
+
     </div>
     {% include 'collection_bar.html'%}
 </div>
