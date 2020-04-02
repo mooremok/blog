@@ -15,11 +15,9 @@ def note_detail(request, note_id):
                             'markdown.extensions.toc',
                     ])
     categories = Category.get_all_categories()
-    comments_count = content.comments_set.count()
     context = {
         'content': content,
         'categories': categories,
-        'comments_count': comments_count,
     }
     return render(request, 'note/detail.html', context)
 
